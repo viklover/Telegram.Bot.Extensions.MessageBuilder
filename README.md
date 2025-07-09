@@ -1,6 +1,5 @@
 # Message builder for .NET Client for Telegram Bot 
-Simple message builder for [Telegram.Bot .NET client](https://github.com/TelegramBots/Telegram.Bot) helps create formatted text with styled entities (bold, italic, code, etc.) 
-and split long messages to fit Telegram limits.
+Simple message builder for the [Telegram.Bot .NET client](https://github.com/TelegramBots/Telegram.Bot) that simplifies creating messages with [styled entities](https://core.telegram.org/api/entities) and splitting long messages to comply with Telegram's limits.
 
 <img src="./.github/pictures/img.png" width="300">
 
@@ -31,7 +30,7 @@ builder.AppendLine();
 
 var message = builder.Build();
 
-// send the message with formatted entities
+// send message with styled entities
 await bot.SendMessage(chatId, message.Content, entities: message.Entities);
 
 // for long messages: split by paragraphs (handles text+attachments)
@@ -41,9 +40,8 @@ foreach (var message in slices) {
 }
 ```
 
-## 📚 Basics
-### Supported message entities
-Telegram has [documentation about all styled entities](https://core.telegram.org/api/entities).
+## 📚 Features
+### ✅ Supported entities
 
 | Message entity    | State           |
 |-------------------|-----------------|
@@ -56,23 +54,24 @@ Telegram has [documentation about all styled entities](https://core.telegram.org
 | Mention user name | ⏳ Not supported |
 | Custom emoji      | ⏳ Not supported |
 
-### Content splitting strategy
-| Split strategy | Demonstration |
-|----------------|---------------|
-| By word        |           |
-| By line        |           |
-| By paragraph   |           |
+### 📏 Message Splitting
+Easily split long messages using different strategies
+| Split strategy | Description               |
+|----------------|---------------------------|
+| By word        | Splits at word boundaries |
+| By line        | Splits at line breaks     |
+| By paragraph   | Splits between paragraph  |
 
 
-### Message size limits
-Telegram has limits to messages content size depends on presence attachments in your message:
+### ⚠️ Size Limitations
+Telegram enforces different limits based on message type:
 
 | Message Type       | Character Limit  |
 |--------------------|------------------|
 | With attachments   | 1024             |
 | Text-only messages | 4096             |
 
-So, for correct splitting message you should specify `MessageContentType`:
+Specify `MessageContentType` when splitting:
 ```csharp
 var slices = builder.Build(
     MessageSplitStrategy.Paragraph, 
@@ -80,7 +79,8 @@ var slices = builder.Build(
 );
 ```
 
-### Builder methods signatures
+## 🛠️ API Reference
+Core Methods
 ```csharp
 MessageBuilder Append(char symbol)
 MessageBuilder Append(MessageBuilder builder)
@@ -117,7 +117,9 @@ MessageBuilder AppendParagraph(string? title, Action<MessageBuilder> printer, bo
 MessageBuilder TrimEnd()
 ```
 
-
 ## 🛠️ Contribution
-Pull requests are welcome!
+We welcome contributions! Please feel free to:
+* Report bugs 🐛
+* Suggest features 💡
+* Submit pull requests 🔄
 

@@ -115,6 +115,9 @@ MessageBuilder AppendParagraph(Action<MessageBuilder> printer, bool nl = true)
 MessageBuilder AppendParagraph(string? title, Action<MessageBuilder> printer, bool nl = true, bool boldTitle = false)
 
 MessageBuilder TrimEnd()
+
+MessageSlice Build()
+MessageSlice[] Build(MessageSplitStrategy splitStrategy, MessageContentType contentType)
 ```
 
 ## 🛠️ Contribution

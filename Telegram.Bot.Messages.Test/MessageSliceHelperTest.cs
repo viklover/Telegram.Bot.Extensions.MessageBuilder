@@ -56,7 +56,7 @@ public class MessageSliceHelperTest : AbstractTest {
             await Console.Out.WriteLineAsync(item.ToString());
         }
         var contentSlices = slices.Select(item => item.Content).ToArray();
-        CollectionAssert.AreEquivalent(expectedSlices, contentSlices);
+        Assert.That(expectedSlices, Is.EqualTo(contentSlices).AsCollection);
     }
     [TestCase("hello", 0)]
     [TestCase("hello", 1, "h", "e", "l", "l", "o")]
@@ -75,7 +75,7 @@ public class MessageSliceHelperTest : AbstractTest {
             await Console.Out.WriteLineAsync(item.ToString());
         }
         var contentSlices = slices.Select(item => item.Content).ToArray();
-        CollectionAssert.AreEquivalent(expectedSlices, contentSlices);
+        Assert.That(expectedSlices, Is.EqualTo(contentSlices).AsCollection);
     }
     [TestCase("hello", 0)]
     [TestCase("hello", 1, "h", "e", "l", "l", "o")]
@@ -94,6 +94,6 @@ public class MessageSliceHelperTest : AbstractTest {
             await Console.Out.WriteLineAsync(item.ToString());
         }
         var contentSlices = slices.Select(item => item.Content).ToArray();
-        CollectionAssert.AreEquivalent(expectedSlices, contentSlices);
+        Assert.That(expectedSlices, Is.EqualTo(contentSlices).AsCollection);
     }
 }

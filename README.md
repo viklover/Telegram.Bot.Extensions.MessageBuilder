@@ -3,6 +3,7 @@
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/viklover/Telegram.Bot.Messages/blob/master/LICENSE.txt)
 ![Linter workflow](https://github.com/viklover/Telegram.Bot.Messages/actions/workflows/lint.yml/badge.svg)
 ![Unit tests workflow](https://github.com/viklover/Telegram.Bot.Messages/actions/workflows/unit-tests.yml/badge.svg)
+
 Simple message builder for the [Telegram.Bot .NET client](https://github.com/TelegramBots/Telegram.Bot) that simplifies creating messages with [styled entities](https://core.telegram.org/api/entities) and splitting long messages to comply with Telegram's limits.
 
 <img src="Telegram.Bot.Messages/Resources/screenshot.png" width="300">

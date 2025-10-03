@@ -112,14 +112,16 @@ public class MessageBuilderTest : AbstractTest {
         Assert.That(slice.Content, Is.EquivalentTo(text));
         await Console.Out.WriteLineAsync(entitiesNumber.ToString());
         await Console.Out.WriteLineAsync(slice.Entities.Length.ToString());
-        Assert.That(slice.Entities.Length, Is.EqualTo(entitiesNumber));
+        Assert.That(slice.Entities, Has.Length.EqualTo(entitiesNumber));
         for (var i = 0; i < slice.Entities.Length; ++i) {
             var entity = slice.Entities[i];
             var expectedEntity = entitiesSlices[i];
             var expectedEntityLength = expectedEntity.Item2 - expectedEntity.Item1;
             await Console.Out.WriteLineAsync($"({entity.Offset}, {entity.Length}) == ({expectedEntity.Item1}, {expectedEntityLength})");
-            Assert.That(entity.Offset, Is.EqualTo(expectedEntity.Item1));
-            Assert.That(entity.Length, Is.EqualTo(expectedEntityLength));
+            Assert.Multiple(() => {
+                Assert.That(entity.Offset, Is.EqualTo(expectedEntity.Item1));
+                Assert.That(entity.Length, Is.EqualTo(expectedEntityLength));
+            });
         }
     }
     /// <summary>
@@ -143,14 +145,18 @@ public class MessageBuilderTest : AbstractTest {
             message.AppendField(field, value, boldTitle: true);
         }
         var slice = message.Build();
-        Assert.That(slice.Entities.Length, Is.EqualTo(entities.Count));
-        for (var i = 0; i < slice.Entities.Length; ++i) {
+        Assert.That(slice.Entities, Has.Length.EqualTo(entities.Count));
+        for (var i = 0; i < slice.Entities.Length; ++i)
+        {
             var entity = slice.Entities[i];
             var expectedEntity = entities[i];
             var expectedEntityLength = expectedEntity.Item2 - expectedEntity.Item1;
             await Console.Out.WriteLineAsync($"({entity.Offset}, {entity.Length}) == ({expectedEntity.Item1}, {expectedEntityLength})");
-            Assert.That(entity.Offset, Is.EqualTo(expectedEntity.Item1));
-            Assert.That(entity.Length, Is.EqualTo(expectedEntityLength));
+            Assert.Multiple(() =>
+            {
+                Assert.That(entity.Offset, Is.EqualTo(expectedEntity.Item1));
+                Assert.That(entity.Length, Is.EqualTo(expectedEntityLength));
+            });
         }
     }
     /// <summary>
@@ -203,13 +209,17 @@ public class MessageBuilderTest : AbstractTest {
         }
         var slice = message.Build();
         await Console.Out.WriteLineAsync(slice.Entities.Length.ToString());
-        Assert.That(slice.Entities.Length, Is.EqualTo(entities.Count));
-        for (var i = 0; i < paragraphsNumber; ++i) {
+        Assert.That(slice.Entities, Has.Length.EqualTo(entities.Count));
+        for (var i = 0; i < paragraphsNumber; ++i)
+        {
             var actualEntity = slice.Entities[i];
             var expectedEntity = entities[i];
             await Console.Out.WriteLineAsync($"({actualEntity.Offset}, {actualEntity.Length}) == ({expectedEntity.Item1}, {expectedEntity.Item2})");
-            Assert.That(actualEntity.Offset, Is.EqualTo(expectedEntity.Item1));
-            Assert.That(actualEntity.Length, Is.EqualTo(expectedEntity.Item2));
+            Assert.Multiple(() =>
+            {
+                Assert.That(actualEntity.Offset, Is.EqualTo(expectedEntity.Item1));
+                Assert.That(actualEntity.Length, Is.EqualTo(expectedEntity.Item2));
+            });
         }
     }
     /// <summary>
@@ -274,13 +284,17 @@ public class MessageBuilderTest : AbstractTest {
         Assert.That(result.Content, Is.EquivalentTo(expectedResult));
         await Console.Out.WriteLineAsync(expectedEntities.Count.ToString());
         await Console.Out.WriteLineAsync(result.Entities.Length.ToString());
-        Assert.That(result.Entities.Length, Is.EqualTo(expectedEntities.Count));
-        for (var i = 0; i < result.Entities.Length; ++i) {
+        Assert.That(result.Entities, Has.Length.EqualTo(expectedEntities.Count));
+        for (var i = 0; i < result.Entities.Length; ++i)
+        {
             var actualEntity = result.Entities[i];
             var expectedEntity = expectedEntities[i];
             await Console.Out.WriteLineAsync($"({actualEntity.Offset}, {actualEntity.Length}) == ({expectedEntity.Item1}, {expectedEntity.Item2})");
-            Assert.That(actualEntity.Offset, Is.EqualTo(expectedEntity.Item1));
-            Assert.That(actualEntity.Length, Is.EqualTo(expectedEntity.Item2));
+            Assert.Multiple(() =>
+            {
+                Assert.That(actualEntity.Offset, Is.EqualTo(expectedEntity.Item1));
+                Assert.That(actualEntity.Length, Is.EqualTo(expectedEntity.Item2));
+            });
         }
     }
 }

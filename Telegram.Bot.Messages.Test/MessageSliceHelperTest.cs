@@ -18,7 +18,7 @@ public class MessageSliceHelperTest : AbstractTest {
         for (var i = 0; i < slices.Length; ++i) {
             await Console.Out.WriteLineAsync($"{i+1}: {slices[i]}");
         }
-        Assert.That(slices.Length, Is.EqualTo(expectedSlicesNum));
+        Assert.That(slices, Has.Length.EqualTo(expectedSlicesNum));
     }
     [TestCase(10, 10, 20, 1)]
     [TestCase(11, 10, 20, 2)]
@@ -37,7 +37,7 @@ public class MessageSliceHelperTest : AbstractTest {
         for (var i = 0; i < slices.Length; ++i) {
             await Console.Out.WriteLineAsync($"{i+1}: {slices[i]}");
         }
-        Assert.That(slices.Length, Is.EqualTo(expectedSlicesNum));
+        Assert.That(slices, Has.Length.EqualTo(expectedSlicesNum));
     }
     [TestCase("hello", 0)]
     [TestCase("hello", 1, "h", "e", "l", "l", "o")]

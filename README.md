@@ -1,4 +1,4 @@
-# Message builder for .NET Client for Telegram Bot 
+# Telegram Message Builder for .NET 
 Simple message builder for the [Telegram.Bot .NET client](https://github.com/TelegramBots/Telegram.Bot) that simplifies creating messages with [styled entities](https://core.telegram.org/api/entities) and splitting long messages to comply with Telegram's limits.
 
 <img src="./.github/pictures/img.png" width="300">

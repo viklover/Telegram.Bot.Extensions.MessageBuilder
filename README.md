@@ -6,7 +6,7 @@
 
 Simple message builder for the [Telegram.Bot .NET client](https://github.com/TelegramBots/Telegram.Bot) that simplifies creating messages with [styled entities](https://core.telegram.org/api/entities) and splitting long messages to comply with Telegram's limits.
 
-<img src="Telegram.Bot.Messages/Resources/screenshot.png" width="300">
+<img src="Telegram.Bot.Messages/screenshot.png" width="300">
 
 ## 🚀 Quick start
 Installation:

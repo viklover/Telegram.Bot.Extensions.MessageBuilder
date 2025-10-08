@@ -2,9 +2,9 @@
 
   <PropertyGroup>
     <PackageId>Telegram.Bot.Messages</PackageId>
-    <Version>1.0.3</Version>
+    <Version>1.0.4</Version>
     <Authors>Mihail Vorobyev</Authors>
-    <Description>Newtonsoft.Json helper we needed</Description>
+    <Description>Simplifies creating messages with text formatting, media attachments, and splitting of long messages to comply with Telegram's limits</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/viklover/Telegram.Bot.Extensions.MessageBuilder</RepositoryUrl>
     <PackageProjectUrl>https://github.com/viklover/Telegram.Bot.Extensions.MessageBuilder</PackageProjectUrl>

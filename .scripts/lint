@@ -1,0 +1,1 @@
+dotnet roslynator analyze --ignored-diagnostics $IGNORE_DIAGNOSTICS

@@ -21,4 +21,4 @@ jobs:
         run: dotnet build --configuration Release
 
       - name: Run .NET Code Analysis
-        run: dotnet tool restore && dotnet roslynator analyze
+        run: source .env && dotnet tool restore && lint

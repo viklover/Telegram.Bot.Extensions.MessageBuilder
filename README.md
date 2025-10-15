@@ -11,7 +11,7 @@ Simple message builder for the [Telegram.Bot .NET client](https://github.com/Tel
 ## 🚀 Quick start
 Installation:
 ```csharp
-dotnet add package Telegram.Bot.Messages --version 1.0.0
+dotnet add package Telegram.Bot.Messages --version 1.0.4
 ```
 Example usage:
 ```csharp

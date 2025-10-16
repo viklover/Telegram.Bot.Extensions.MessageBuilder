@@ -1,12 +1,12 @@
 {
-    "version": 1,
-    "isRoot": true,
-    "tools": {
-      "roslynator.dotnet.cli": {
-        "version": "0.9.3",
-        "commands": [
-          "roslynator"
-        ]
-      }
+  "version": 1,
+  "isRoot": true,
+  "tools": {
+    "roslynator.dotnet.cli": {
+      "version": "0.11.0",
+      "commands": [
+        "roslynator"
+      ]
     }
   }
+}

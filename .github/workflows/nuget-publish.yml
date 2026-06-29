@@ -1,0 +1,23 @@
+name: NuGet publish
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    environment: release
+    permissions:
+      id-token: write
+      contents: read
+      packages: write
+
+    steps:
+      - uses: viklover/nuget-publish@v1
+        with:
+          DOTNET_VERSION: "7.0.x"
+          PROJECT_FILE_PATH: Telegram.Bot.Messages/Telegram.Bot.Messages.csproj
+          NUGET_USER: viklover
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
